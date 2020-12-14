@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'pages#home'
   #get 'pages/home', to: 'pages#home'
   get 'about', to: 'pages#about' #/about au lieu de pages/about
-  resources :articles #rajoute des routes
+  resources :articles #rajoute des routes comme new/show/destroy
 end

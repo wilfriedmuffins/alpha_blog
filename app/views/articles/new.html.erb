@@ -1,5 +1,15 @@
 <h1>Creation d'un article</h1>
 
+<!--affichage des msg si pk save false -->
+<% if @article.errors.any? %>
+  <h2>Erreur à cause des raisons suivantes </hs>
+  <ul>
+    <% @article.errors.full_messages.each do  |msg|  %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @article do |f| %>
  <p>
    <%= f.label :title %><br/>
