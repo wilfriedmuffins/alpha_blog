@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-
+    #permet d'apel le méthode set-article das les actions edit show delete update
+    before_action :set_article, only: [:edit, :show, :delete, :update]
     def index
         @articles = Article.all
     end
@@ -19,23 +20,19 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        @article = Article.find(params[:id])
     end
 
     def edit
-        @article = Article.find(params[:id])
     end
 
     def destroy
-        @article = Article.find(params[:id])
         @article.destroy
         flash[:notice] = "Article suprimer"
         redirect_to articles_path
     end
 
     def update
-        @article = Article.find(params[:id])
-        if @article.update(article_params)
+            if @article.update(article_params)
             flash[:notice] = "Article bel et bien modifier"
             redirect_to article_path(@article)
         else
@@ -48,5 +45,9 @@ class ArticlesController < ApplicationController
     def article_params
         #permet de vérifier que c'est une bien un titre et une descrioption que l'on envoie
         params.require(:article).permit(:title, :description)
+    end
+
+    def set_article
+        @article = Article.find(params[:id])
     end
 end
