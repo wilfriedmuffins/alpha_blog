@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     #permet d'apel le méthode set-article das les actions edit show delete update
-    before_action :set_article, only: [:edit, :show, :delete, :update]
+    before_action :set_article, only: [:edit, :show, :delete, :update, :destroy]
     def index
         @articles = Article.all
     end
