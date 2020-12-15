@@ -2,7 +2,7 @@
 
 <!--affichage des msg si pk save false -->
 <% if @article.errors.any? %>
-  <h2>Erreur à cause des raisons suivantes </hs>
+  <h2>Erreur à cause des raisons suivantes </h2>
   <ul>
     <% @article.errors.full_messages.each do  |msg|  %>
       <li><%= msg %></li>

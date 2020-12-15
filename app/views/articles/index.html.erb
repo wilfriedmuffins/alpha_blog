@@ -1,0 +1,22 @@
+<h1>Listing de tous les articles</h1>
+
+<p> 
+    <%= link_to "Creer nouvelle nouvel article", new_article_path %><br/>
+</p>
+<!-- tableau des article -->
+<table>
+    <tr>
+        <th>Titre</th>
+        <th>Description</th>
+    </tr>
+    <% @articles.each do |article|  %>
+        <tr>
+            <td><%= article.title %></td>
+            <td><%= article.description %></td>
+            <!-- pour passer l'id en parametre on rajoute "article" dans le lien -->
+            <td><%= link_to "Edit", edit_article_path(article) %></td> 
+            <!-- <td><%= link_to "Supprimer", destroy_path(article) %></td> -->
+            <td><%= link_to "show", article_path(article) %></td> 
+        </tr>
+    <% end %>
+</tables>
