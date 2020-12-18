@@ -1,1 +1,74 @@
-//$body-bg: #000;
+$theme-colors: (
+  "light": #212F3D
+);
+
+
+#logo{
+  float: left;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.center{
+  text-align: center;
+}
+
+.jumbotron{
+  background-image: asset-url('main.jpg'); //rajouter une image au jumbotron
+  height: 580px ;
+}
+
+.jumbotron h1, p{
+  color: white;
+}
+
+#title-navbar{
+  color:  #abb2b9 ;
+}
+
+#logo{
+  float: left;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.center{
+  text-align: center;
+}
+
+#title-navbar{
+  color:  #abb2b9 ;
+}
+
+
+footer{
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #333333 ;
+  color: #888888;
+}
+
+// .articles{
+//   width: auto;
+//   display: table;
+// }
+
+footer small{
+  float: left;
+}
+
+footer ul{
+  float: right;
+  list-style: none;
+}
+
+footer ul li{
+  float: left;
+  margin-left: 15px;
+}
