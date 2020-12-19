@@ -9,16 +9,24 @@
 <% end %>
 
 
-<%= form_for @article do |f| %>
- <p>
-   <%= f.label :title %><br/>
-   <%= f.text_field :title%>
- </p>
- <p>
-   <%= f.label :description %><br/>
-   <%= f.text_area :description%>
- </p>
-  <p>
-   <%= f.submit %>
- </p>
-<% end %>
+<div class="container">
+  <%= form_for @article do |f| %>
+    <div class="mb-3">
+        <div class="form-label">
+          <%= f.label :title %>
+        </div>
+        <%= f.text_field :title, class:"col-8", placeholder: "Titre"%> 
+    </div>
+    <div class="mb-3">
+      <div class="form-label">
+          <%= f.label :description %>
+      </div>
+      <%= f.text_area :description, class:"col-8", placeholder: "Description"%>
+    </div>
+    <div class="mb-3">
+      <div class="btn">
+        <%= f.submit class:"btn-primary"%>
+      </div>
+    </div>
+  <% end %>
+</div>
