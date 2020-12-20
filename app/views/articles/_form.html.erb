@@ -21,12 +21,13 @@
       <div class="form-label">
           <%= f.label :description %>
       </div>
-      <%= f.text_area :description, class:"col-8", placeholder: "Description"%>
+      <%= f.text_area :description,rows: 10, class:"col-8", placeholder: "Description"%>
     </div>
     <div class="mb-3">
-      <div class="btn">
-        <%= f.submit class:"btn-primary"%>
-      </div>
+      <%= f.submit class:"btn-primary"%>
     </div>
   <% end %>
+
+  <%= link_to "Retour à la liste", articles_path  %>
 </div>
+
