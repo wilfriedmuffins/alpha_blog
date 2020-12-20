@@ -14,6 +14,7 @@ $theme-colors: (
 
 .center{
   text-align: center;
+  color: white;
 }
 
 .jumbotron{
@@ -21,9 +22,6 @@ $theme-colors: (
   height: 580px ;
 }
 
-.jumbotron h1, p{
-  color: white;
-}
 
 #title-navbar{
   color:  #abb2b9 ;
@@ -38,9 +36,7 @@ $theme-colors: (
   font-weight: bold;
 }
 
-.center{
-  text-align: center;
-}
+
 
 #title-navbar{
   color:  #abb2b9 ;
@@ -53,11 +49,6 @@ footer{
   border-top: 1px solid #333333 ;
   color: #888888;
 }
-
-// .articles{
-//   width: auto;
-//   display: table;
-// }
 
 footer small{
   float: left;
