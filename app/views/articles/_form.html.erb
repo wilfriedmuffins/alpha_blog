@@ -6,17 +6,21 @@
       <div class="form-label">
         <%= f.label :title %>
       </div>
-      <%= f.text_field :title, class:"col-12", placeholder: "Titre"%>
+      <%= f.text_field :title, class:"col-12 form-control", placeholder: "Titre"%>
     </div>
     <div class="mb-3">
       <div class="form-label">
         <%= f.label :description %>
       </div>
-      <%= f.text_area :description,rows: 10, class:"col-12", placeholder: "Description"%>
+      <%= f.text_area :description,rows: 10, class:"col-12 form-control ", placeholder: "Description"%>
     </div>
     <div class="mb-3">
       <%= f.submit class:"btn-primary"%>
     </div>
   <% end %>
   <%= link_to "Retour à la liste", articles_path  %>
+</div>
+<div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+  <label for="floatingTextarea">Comments</label>
 </div>

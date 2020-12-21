@@ -1,6 +1,11 @@
-<h1><%= @article.title %></h1>
-
-<p><%= @article.description %></p>
-
-<%= link_to "revenir à la liste", articles_path  %> |
-<%= link_to "Editer l'article", edit_article_path(@article) %>
+<div class="container">
+  <h2><%= @article.title %></h2>
+  <div class="display-description">
+    <%= @article.description %>
+    <div class="article-actions">
+      <%= link_to "Editer l'article", edit_article_path(@article), class: "btn btn-success btn-sm" %>
+      <%= link_to "Suprimer cet article", article_path(@article), method: :delete, class: "btn btn-danger btn-sm" %>
+      <%= link_to "Revenir à la liste", articles_path, class: "btn btn-primary btn-sm"  %>
+    </div>
+  </div>
+</div>
