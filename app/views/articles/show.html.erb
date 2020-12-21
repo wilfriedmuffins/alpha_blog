@@ -3,9 +3,9 @@
   <div class="display-description">
     <%= @article.description %>
     <div class="article-actions">
-      <%= link_to "Editer l'article", edit_article_path(@article), class: "btn btn-success btn-sm" %>
+      <%= link_to "Editer l'article", edit_article_path(@article), class: "btn btn-primary btn-sm" %>
       <%= link_to "Suprimer cet article", article_path(@article), method: :delete, class: "btn btn-danger btn-sm" %>
-      <%= link_to "Revenir à la liste", articles_path, class: "btn btn-primary btn-sm"  %>
+      <%= link_to "Revenir à la liste", articles_path, class: "btn btn-success btn-sm"  %>
     </div>
   </div>
 </div>
