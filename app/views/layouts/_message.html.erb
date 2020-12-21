@@ -1,5 +1,8 @@
- <%flash.each do |name, msg| %>
-  <ul>
-    <li><%= msg %></li>
-  </ul>
-<%end %>
+<div class="container">
+  <% flash.each do |key, msg| %>
+    <div class ="alert alert-<%=key%>" role="alert">
+      <a href="#" class="close" data-dismiss="alert">&#215;</a>
+       <%= content_tag :div, msg, :id =>"flash-{#key}" if msg.is_a?(String) %>
+    </div>
+  <% end %>
+</div> 

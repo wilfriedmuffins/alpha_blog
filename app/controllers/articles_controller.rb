@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
     #permet d'apel le méthode set-article das les actions edit show delete update
     before_action :set_article, only: [:edit, :show, :delete, :update, :destroy]
+
+
     def index
         @articles = Article.all
     end
@@ -12,7 +14,7 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
         if @article.save
-            flash[:notice] = "Article bel et bien créé"
+            flash[:success] = "Article bel et bien créé"
             redirect_to article_path(@article)
         else
             render 'new'
@@ -27,13 +29,13 @@ class ArticlesController < ApplicationController
 
     def destroy
         @article.destroy
-        flash[:notice] = "Article suprimer"
+        flash[:danger] = "Article suprimé"
         redirect_to articles_path
     end
 
     def update
             if @article.update(article_params)
-            flash[:notice] = "Article bel et bien modifier"
+            flash[:success] = "Article bel et bien modifier"
             redirect_to article_path(@article)
         else
             render 'edit'

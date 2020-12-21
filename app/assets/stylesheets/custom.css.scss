@@ -2,7 +2,6 @@ $theme-colors: (
   "light": #212F3D
 );
 
-
 #logo{
   float: left;
   font-size: 1.7em;
@@ -22,7 +21,6 @@ $theme-colors: (
   height: 580px ;
 }
 
-
 #title-navbar{
   color:  #abb2b9 ;
 }
@@ -36,12 +34,9 @@ $theme-colors: (
   font-weight: bold;
 }
 
-
-
 #title-navbar{
   color:  #abb2b9 ;
 }
-
 
 footer{
   margin-top: 45px;
@@ -59,7 +54,12 @@ footer ul{
   list-style: none;
 }
 
+
 footer ul li{
   float: left;
   margin-left: 15px;
+}
+
+ul li{
+  list-style: none;
 }

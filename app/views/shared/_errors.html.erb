@@ -1,0 +1,14 @@
+<!--affichage des msg si pk save false -->
+<div class="container">
+  <% if obj.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <!-- met au le nombre d'erreurs -->
+      <p  class="alert-link"><%= pluralize(obj.errors.count, "erreur") %> que nous avons</p>
+      <ul>
+        <% obj.errors.full_messages.each do  |msg|  %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

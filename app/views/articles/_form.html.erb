@@ -1,25 +1,16 @@
-<!--affichage des msg si pk save false -->
-<% if @article.errors.any? %>
-  <h2>Erreur à cause des raisons suivantes </h2>
-  <ul>
-    <% @article.errors.full_messages.each do  |msg|  %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-
+<!-- obj: article pertmet de passe en parametre sur le type d'objet on utilis ici article-->
+<%= render 'shared/errors', obj: @article %>
 <div class="container">
   <%= form_for @article do |f| %>
     <div class="mb-3">
-        <div class="form-label">
-          <%= f.label :title %>
-        </div>
-        <%= f.text_field :title, class:"col-12", placeholder: "Titre"%> 
+      <div class="form-label">
+        <%= f.label :title %>
+      </div>
+      <%= f.text_field :title, class:"col-12", placeholder: "Titre"%>
     </div>
     <div class="mb-3">
       <div class="form-label">
-          <%= f.label :description %>
+        <%= f.label :description %>
       </div>
       <%= f.text_area :description,rows: 10, class:"col-12", placeholder: "Description"%>
     </div>
@@ -27,7 +18,5 @@
       <%= f.submit class:"btn-primary"%>
     </div>
   <% end %>
-
   <%= link_to "Retour à la liste", articles_path  %>
 </div>
-
