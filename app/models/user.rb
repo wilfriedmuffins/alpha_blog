@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-    #opération crud directement disponible grace à ce fichier
-    #validates pour ne pas save des article avec vide(presence) + taille(length)
-    #validates :title, presence: true, length: {minimum: 3, maximum: 50}
-    #validates :description, presence: true, length: {minimum: 10, maximum: 300}
+    
+    validates :username, presence: true, uniqueness: { case_sensitive: false }, length: {minimum: 3, maximum: 25}
+    VALID_EMAIL_REGEX = /.+\@.+\..+/i
+    validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX}
+    
 end
