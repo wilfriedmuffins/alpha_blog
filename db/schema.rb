@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_12_165759) do
+ActiveRecord::Schema.define(version: 2021_01_31_200354) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -19,19 +19,11 @@ ActiveRecord::Schema.define(version: 2020_12_12_165759) do
     t.datetime "updated_at"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end
-
-=begin
-1 "rails g migration creat_articles"
-2 ajoute attributs(columun of table) dans XXXXXX_create_article.rb
-3 "rake db:migrate"
-
-si ouble une colonum on peut generate une autre migration:
-"rails g migrtion add_description_to_aricles" , un new file est 
-create XXXXX_add_description_to_aricles ajoute dans attribut manquant dans ce fichier
-faire une migration pour ajouter la MAJ : "rake db;migrtion"
-
-comuniquer avec la table créér un new file dans le model :"article.rb"
-les methodde CRUD deja prise en compte suite au fichier article.rb
-
-=end
