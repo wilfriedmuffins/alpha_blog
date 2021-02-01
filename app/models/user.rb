@@ -1,5 +1,12 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
+    #user peut avoir plusieur article
+    has_many :articles
     
+    #save email en minuscule
+    before_save {self.email.downcase!}
+
+
+
     validates :username, presence: true, 
                         uniqueness: { case_sensitive: false }, 
                         length: {minimum: 3, maximum: 25}
@@ -9,4 +16,5 @@ class User < ActiveRecord::Base
     validates :email, presence: true, 
                     uniqueness: { case_sensitive: false }, 
                     format: { with: VALID_EMAIL_REGEX}
+     
 end
