@@ -8,15 +8,19 @@
       <tr>
         <th>Titre</th>
         <th>Description</th>
-         <th>Actions</th>
+        <th>Informations</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <% @articles.each do |article|  %>
         <tr>
           <td><%= link_to article.title, article_path(article) %></td>
-            <!-- truncate : permt d'afficer une partie de description -->
+          <!-- truncate : permt d'afficer une partie de description -->
           <td><%= truncate(article.description, length: 60) %></td>
+          <!-- time_ago_in_words changer le format -->
+          <td>Created by <%= article.user.username if article.user %> at <%= time_ago_in_words(article.created_at) %> ago,
+                            updated <%= time_ago_in_words(article.updated_at) %> ago </td>
           <!-- pour passer l'id en parametre on rajoute "article" dans le lien -->
           <td><%= link_to "Editer", edit_article_path(article), class: "btn btn-primary btn-sm" %> </td>
           <!-- rajouter "methode :delete" pour sureprimer -->
