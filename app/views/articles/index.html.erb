@@ -19,8 +19,8 @@
           <!-- truncate : permt d'afficer une partie de description -->
           <td><%= truncate(article.description, length: 60) %></td>
           <!-- time_ago_in_words changer le format -->
-          <td>Created by <%= article.user.username if article.user %> at <%= time_ago_in_words(article.created_at) %> ago,
-                            updated <%= time_ago_in_words(article.updated_at) %> ago </td>
+          <td><small> Created by <strong> <%= article.user.username if article.user %></strong> at <%= time_ago_in_words(article.created_at) %> ago,
+                            updated <%= time_ago_in_words(article.updated_at) %> ago </small></td>
           <!-- pour passer l'id en parametre on rajoute "article" dans le lien -->
           <td><%= link_to "Editer", edit_article_path(article), class: "btn btn-primary btn-sm" %> </td>
           <!-- rajouter "methode :delete" pour sureprimer -->
