@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   #get 'pages/home', to: 'pages#home'
   get 'about', to: 'pages#about' #/about au lieu de pages/about ; about est le nom du controller
   #get 'destroy', to: 'articles#destroy'
-  resources :articles #rajoute des routes comme new/show/destroy
+  resources :articles #rajoute des routes comme new/show/destroy/creat
+
+  get "sign_up", to: "users#new"
+  resources :users, except: (:new) #creation des liens
 end
