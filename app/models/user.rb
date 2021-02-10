@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     #user peut avoir plusieur article
     has_many :articles
+    has_secure_password
     
     #save email en minuscule
     before_save {self.email.downcase!}
