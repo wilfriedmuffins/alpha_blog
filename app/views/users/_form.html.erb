@@ -1,0 +1,28 @@
+<%= render 'shared/errors', obj: @user %>
+<div class="container">
+  <%= form_for @user do |f| %>
+    <div class="mb-3">
+      <div class="form-label">
+        <%= f.label :username %>
+      </div>
+      <%= f.text_field :username, class:"col-12 form-control", placeholder: "Votre username"%>
+    </div>
+    <div class="mb-3">
+      <div class="form-label">
+        <%= f.label :email %>
+      </div>
+      <%= f.text_field :email, class:"col-12 form-control ", placeholder: "Votre email"%>
+    </div>
+    <div class="mb-3">
+      <div class="form-label">
+        <%= f.label :password %>
+      </div>
+      <%= f.password_field :password, class:"col-12 form-control ", placeholder: "Votre mot de passe"%>
+    </div>
+    <div class="mb-3">
+        <!--#operateur ternère>-->
+        <%= f.submit(@user.new_record? ? "S'inscire" : "Mettre à jours", class:"btn-primary")%>
+    </div>
+  <% end %>
+  <%= link_to "Retour à la liste", articles_path  %>
+</div>
