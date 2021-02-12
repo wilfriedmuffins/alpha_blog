@@ -1,32 +1,6 @@
 <div class="container">
   <h1>Listing de tous les articles</h1>
-  <p><%= link_to "Creer nouvelle nouvel article", new_article_path %><br/>
-  </p>
-  <!-- tableau des article -->
-  <table class="articles table table-striped table-hover">
-    <thead>
-      <tr>
-        <th>Titre</th>
-        <th>Description</th>
-        <th>Informations</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @articles.each do |article|  %>
-        <tr>
-          <td><%= link_to article.title, article_path(article) %></td>
-          <!-- truncate : permt d'afficer une partie de description -->
-          <td><%= truncate(article.description, length: 60) %></td>
-          <!-- time_ago_in_words changer le format -->
-          <td><small> Created by <strong> <%= article.user.username if article.user %></strong> at <%= time_ago_in_words(article.created_at) %> ago,
-                            updated <%= time_ago_in_words(article.updated_at) %> ago </small></td>
-          <!-- pour passer l'id en parametre on rajoute "article" dans le lien -->
-          <td><%= link_to "Editer", edit_article_path(article), class: "btn btn-primary btn-sm" %> </td>
-          <!-- rajouter "methode :delete" pour sureprimer -->
-          <td><%= link_to "Suprimer", article_path(article), method: :delete, class: "btn btn-danger btn-sm" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <p><%= link_to "Creer nouvelle nouvel article", new_article_path %></p>
+  <!--obj articles des sites da sn bouche each do-->
+  <%= render "articles", obj: @articles %>
 </div>

@@ -1,0 +1,8 @@
+<div class="container text-center">
+    <h1>Bienvenue <%= @user.username%></h1>
+
+    <%= gravatar_for @user, size: 200 %>
+    <h4>Articles de <%= @user.username%></h4> 
+</div>
+<!--obj articles du user pour la boucle each do-->
+<%= render "articles/articles", obj: @user.articles %>
