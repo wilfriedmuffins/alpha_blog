@@ -3,6 +3,10 @@ class UsersController <ApplicationController
         @user = User.new
     end
 
+    def index
+        @users = User.all
+    end
+
     def create 
         #defini @user avec les valeur du form grace à params
         @user = User.new(user_params)
