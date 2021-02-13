@@ -1,4 +1,6 @@
 class UsersController <ApplicationController
+    before_action :set_user, only: [:edit, :show, :update]
+
     def new
         @user = User.new
     end
@@ -20,11 +22,9 @@ class UsersController <ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id]) #cherche l'user
     end
 
     def update
-        @user = User.find(params[:id])
         if @user.update(user_params)
             flash[:success] = "new user mise a mise à jours avec success !"
             redirect_to articles_path
@@ -34,11 +34,14 @@ class UsersController <ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
         @user_articles = @user.articles.page(params[:page])
     end
 
     private
+
+    def set_user
+        @user = User.find(params[:id]) #cherche l'user
+    end
 
     def user_params
         #permet de vérifier que c'est une bien un titre et une descrioption que l'on envoie
