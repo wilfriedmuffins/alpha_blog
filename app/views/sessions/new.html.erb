@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="text-center">Se connecter</h1>
+
+    <%= form_for :session, url: login_path do |f| %> 
+        <div class="mb-3">
+        <div class="form-label">
+            <%= f.label :email %>
+        </div>
+        <%= f.text_field :email, class:"col-12 form-control ", placeholder: "Votre email"%>
+        </div>
+        <div class="mb-3">
+        <div class="form-label">
+            <%= f.label :password %>
+        </div>
+        <%= f.password_field :password, class:"col-12 form-control ", placeholder: "Votre mot de passe", autocomplete: "off"%>
+        </div>
+        <div class="mb-3 center">
+            <!--#operateur ternère>-->
+            <!--le button prends le lien login_path-->
+            <%= f.submit "Se connecter", class:"btn-primary "%>
+        </div>
+    <% end %>
+</div>
