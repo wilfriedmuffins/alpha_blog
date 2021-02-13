@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :articles #rajoute des routes comme new/show/destroy/creat
 
   get "sign_up", to: "users#new"
-  resources :users, except: (:new) #creation des liens
+  resources :users, except: (:new) #creation des liens sauf new
 
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
-  delete "logout", to: "sessions#destroy"
+  delete "logout", :to => "sessions#destroy"
 end
