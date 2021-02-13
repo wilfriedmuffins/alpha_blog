@@ -4,7 +4,10 @@ class ArticlesController < ApplicationController
 
 
     def index
-        @articles = Article.all
+        #récupérer toute les articles
+        #@articles = Article.all
+        #récupérer all article with pagination
+        @articles = Article.page(params[:page])
     end
 
     def new

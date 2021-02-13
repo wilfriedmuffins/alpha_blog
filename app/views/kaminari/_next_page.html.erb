@@ -1,0 +1,13 @@
+
+ <li class="page-item">
+  <%= link_to_unless current_page.last?, raw(t 'views.pagination.next'), url, rel: 'Next', remote: remote, class: 'page-link' %>
+</li> 
+
+
+<%
+=begin%>
+ <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+</li> 
+<%
+=end%>

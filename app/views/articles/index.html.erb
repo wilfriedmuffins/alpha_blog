@@ -1,6 +1,11 @@
 <div class="container">
   <h1>Listing de tous les articles</h1>
   <p><%= link_to "Creer nouvelle nouvel article", new_article_path %></p>
+  
+
   <!--obj articles des sites da sn bouche each do-->
   <%= render "articles", obj: @articles %>
+  <div class="pagination">
+    <%= paginate @articles %>
+  </div>
 </div>
