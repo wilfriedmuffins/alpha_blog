@@ -6,17 +6,23 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+
       <li class="nav-item">
         <%= link_to "A propos", about_path, class: "nav-link", id: "title-navbar" %>
       </li>   
+
       <li class="nav-item">
         <%= link_to "Articles", articles_path, class: "nav-link", id: "title-navbar" %>
       </li>
+      <li class="nav-item">
+        <%= link_to "utilisateur", users_path, class: "nav-link", id: "title-navbar" %>
+      </li>
+      
       <% if logged_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle style" id="title-navbar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Actions
-          </a>
+          </a>    
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Nouvel Article", new_article_path, class: "dropdown-item" %>
             <a class="dropdown-item" href="#">Another action</a>
@@ -24,12 +30,31 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
-        </ul>
-        <%= link_to "Deconnection", logout_path, method: :delete, class: "nav-link", id: "title-navbar" %>
+    </ul> 
+
+    <ul class="navbar-nav">
+      <li> <%= link_to "Deconnection", logout_path, method: :delete, class: "nav-link", id: "title-navbar" %> </li>       
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle style" id="title-navbar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profil
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Afihcer le profil", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Editer profil", edit_user_path(current_user), class: "dropdown-item" %>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
       <% else %>
-        <%= link_to "Se connecter", login_path, class: "nav-link", id: "title-navbar"  %>
-        <%= link_to "S'inscrire", sign_up_path, class: "nav-link", id: "title-navbar" %>
+          <li class="nav-item"><%= link_to "Se connecter", login_path, class: "nav-link", id: "title-navbar"  %></li> 
+          <li class="nav-item"><%= link_to "S'inscrire", sign_up_path, class: "nav-link", id: "title-navbar" %></li> 
+      
+       
       <% end %>
+    
+    </ul>  
+        
   </div>
 </nav> 
 

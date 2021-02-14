@@ -1,5 +1,6 @@
 class UsersController <ApplicationController
     before_action :set_user, only: [:edit, :show, :update]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def new
         @user = User.new
@@ -46,5 +47,13 @@ class UsersController <ApplicationController
     def user_params
         #permet de vérifier que c'est une bien un titre et une descrioption que l'on envoie
         params.require(:user).permit(:username, :email, :password)
+    end
+
+    def require_same_user
+        #user est dif de l'auteur
+        if current_user != @user
+            flash[:danger] = " hé tu fais quoi la non non tu ne peux pas faire sa c'est pas toi user"
+            redirect_to root_path
+        end
     end
 end

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    #rendre disponible les methodes dasn les view
+    #rendre disponible les methodes dans les view
     helper_method :current_user, :logged_in?
 
 
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
-    #methode utile pour certain action 
+    #methode si pas connecter
     def require_user
         if not logged_in?
             flash[:danger] = " o o tu n'es pas connecté"
