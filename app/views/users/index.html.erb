@@ -2,17 +2,16 @@
     <h1> Liste des utilisateurs</h1>
 </div>
 <div class="container">
-    <% @user.each do |user|%>
+    <% @users.each do |user|%>
         <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-secondary">
                 <%= gravatar_for user, size: 12 %>
-                 <%= link_to user.username, user_path(user) %>
+                <%= link_to user.username, user_path(user) %>
             </li>
             <li class="list-group-item">
                 <p class="mb-1"><%= pluralize(user.articles.count, "article") if user.articles %></p>
             </li>
         </ul>
-       
     <% end %>
      <div class="pagination">
         <%= paginate @user %>
