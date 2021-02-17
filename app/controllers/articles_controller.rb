@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
         #récupérer toute les articles
         #@articles = Article.all
         #récupérer all article with pagination
-        @articles = Article.page(params[:page])
+        @articles = Article.page(params[:page]).per(5)
     end
 
     def new
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
     def destroy
         @article.destroy
-        flash[:danger] = "Article suprimé"
+        flash[:success] = "Article suprimé y bon"
         redirect_to articles_path
     end
 
@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
     
     def require_same_user
         #user est dif de l'auteur
-        if current_user != @article.user
+        if current_user != @article.user and current_user.admin? == false
             flash[:danger] = " hé tu fais quoi la non non tu ne peux pas faire sa c'est pas ton article"
             redirect_to root_path
         end

@@ -8,7 +8,7 @@ class UsersController <ApplicationController
 
     def index
         #@users = User.all
-        @user = User.page(params[:page]).per(4)
+        @user = User.page(params[:page]).per(5)
     end
 
     def create 

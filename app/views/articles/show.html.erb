@@ -7,7 +7,7 @@
       <small> Par <%= link_to @article.user.username, user_path(@article.user)%></small>
     </div>
     <div class="article-actions">
-      <% if logged_in? and current_user == @article.user %>
+      <% if logged_in? and (current_user == @article.user or current_user.admin?) %>
         <%= link_to "Editer l'article", edit_article_path(@article), class: "btn btn-primary btn-sm" %>
         <%= link_to "Suprimer cet article", article_path(@article), method: :delete, class: "btn btn-danger btn-sm" %>
       <%end%>
