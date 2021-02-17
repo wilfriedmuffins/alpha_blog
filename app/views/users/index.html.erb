@@ -2,7 +2,7 @@
     <h1> Liste des utilisateurs</h1>
 </div>
 <div class="container">
-    <% @users.each do |user|%>
+    <% @user.each do |user|%>
         <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-secondary">
                 <%= gravatar_for user, size: 12 %>
