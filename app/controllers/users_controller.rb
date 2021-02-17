@@ -35,7 +35,7 @@ class UsersController <ApplicationController
     end
 
     def show
-        @user_articles = @user.articles.page(params[:page])
+        @user_articles = @user.articles.page(params[:page]).per(4)
     end
 
     private
