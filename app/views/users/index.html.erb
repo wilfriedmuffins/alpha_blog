@@ -7,13 +7,20 @@
             <li class="list-group-item list-group-item-secondary">
                 <%= gravatar_for user, size: 12 %>
                 <%= link_to user.username, user_path(user) %>
+                <% if logged_in? and current_user.admin? %>
+                    <%= link_to "Suprimer utilisateur", user_path(user),
+                    method: :delete, data: {confirm: "Etes-vous sur de voiloir surprimer cette utilisatueur"},
+                    class: "btn btn-danger btn-sm" %>
+                <% end %>
             </li>
+            
             <li class="list-group-item">
                 <p class="mb-1"><%= pluralize(user.articles.count, "article") if user.articles %></p>
             </li>
         </ul>
+
     <% end %>
-     <div class="pagination">
+    <div class="pagination">
         <%= paginate @user %>
     </div>
 </div>

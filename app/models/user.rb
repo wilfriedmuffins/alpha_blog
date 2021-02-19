@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    #user peut avoir plusieur article
-    has_many :articles
+    #user peut avoir plusieur article +dependant avec les ar
+    has_many :articles, dependent: :destroy
     has_secure_password
     
     #save email en minuscule

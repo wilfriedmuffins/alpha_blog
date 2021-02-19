@@ -21,7 +21,7 @@
           <!-- pour passer l'id en parametre on rajoute "article" dans le lien -->
           <% if logged_in? and (current_user == article.user or current_user.admin?) %>
             <td><%= link_to "Editer", edit_article_path(article), class: "btn btn-primary btn-sm" %> </td>
-            <!-- rajouter "methode :delete" pour sureprimer -->
+            <!-- rajouter "methode :delete" pour surprimer -->
             <td><%= link_to "Suprimer", article_path(article), method: :delete, class: "btn btn-danger btn-sm" %></td>
           <% end %>
         </tr>

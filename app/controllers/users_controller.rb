@@ -1,6 +1,7 @@
 class UsersController <ApplicationController
-    before_action :set_user, only: [:edit, :show, :update]
+    before_action :set_user, only: [:edit, :show, :update, :destroy]
     before_action :require_same_user, only: [:edit, :update, :destroy]
+    before_action :require_admin, only: [:destroy]
 
     def new
         @user = User.new
@@ -20,6 +21,12 @@ class UsersController <ApplicationController
         else
             render "new"
         end
+    end
+
+    def destroy
+        @user.destroy
+        flash[:success] = "Utilisateur surprimer avec success et touts ces articles"
+        redirect_to users_path
     end
 
     def edit
@@ -51,9 +58,16 @@ class UsersController <ApplicationController
 
     def require_same_user
         #user est dif de l'auteur
-        if current_user != @user
-            flash[:danger] = " hé tu fais quoi la non non tu ne peux pas faire sa c'est pas toi user"
+        if current_user != @user and current_user.admin? == false
+            flash[:danger] = " hé tu fais quoi la non non tu ne peux pas faire sa c'est pas toi le user"
             redirect_to root_path
+        end
+    end
+
+    def require_admin
+        if logged_in? and current_user.admin? == false
+            flash[:danger] = "attention tu fais quoi la tu n'es pas l'admin"
+            redirect_to users_path
         end
     end
 end
